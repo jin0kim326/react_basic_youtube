@@ -1,22 +1,37 @@
-.video_item {
+.container {
+  width: 50%;
+  padding: 0.2rem;
+}
+.video {
   width: 100%;
+  height: 100%;
   display: flex;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  align-items: center;
+  border: 1px solid lightgray;
+  box-shadow: 3px 3px 5px 0px rgba(191, 191, 191, 0.53);
+  cursor: pointer;
+  transition: transform 250ms ease-in;
 }
 
-.video_info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.video:hover {
+  transform: scale(1.02);
 }
 
 .thumbnail {
+  width: 40%;
+  height: 100%;
 }
 
-.title {
-  font-size: 1rem;
+.metadata {
+  margin-left: 0.2rem;
 }
+
+.title,
 .channel {
-  color: #666666;
+  margin: 0;
   font-size: 0.8rem;
+}
+
+.channel {
+  font-size: 0.6rem;
 }

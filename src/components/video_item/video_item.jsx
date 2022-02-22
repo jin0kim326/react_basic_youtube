@@ -3,20 +3,22 @@ import styles from "./video_item.module.css";
 
 class VideoItem extends Component {
   render() {
+    const snippet = this.props.video.snippet;
+
     return (
-      <div className={styles.video_item} onClick={this.props.onClick}>
-        <img
-          className={styles.thumbnail}
-          src={this.props.video.snippet.thumbnails.default.url}
-          alt="thumbnail"
-        />
-        <div className={styles.video_info}>
-          <span className={styles.title}>{this.props.video.snippet.title}</span>
-          <span className={styles.channel}>
-            {this.props.video.snippet.channelTitle}
-          </span>
+      <li className={styles.container} onClick={this.props.onClick}>
+        <div className={styles.video}>
+          <img
+            className={styles.thumbnail}
+            src={snippet.thumbnails.medium.url}
+            alt="thumbnail"
+          />
+          <div className={styles.metadata}>
+            <p className={styles.title}>{snippet.title}</p>
+            <p className={styles.channel}>{snippet.channelTitle}</p>
+          </div>
         </div>
-      </div>
+      </li>
     );
   }
 }

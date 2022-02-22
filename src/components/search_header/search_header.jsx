@@ -34,7 +34,7 @@ class SearchHeader extends Component {
         <form action="">
           <input type="text" className={styles.query} ref={this.inputRef} />
           <i
-            class={`fa-solid fa-magnifying-glass ${styles.search_icon}`}
+            className={`fa-solid fa-magnifying-glass ${styles.search_icon}`}
             onClick={this.props.onClick}
           ></i>
         </form>

@@ -1,6 +1,6 @@
-.video_list {
-  width: 80%;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
-  gap: 1rem;
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
 }
