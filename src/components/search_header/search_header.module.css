@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  background-color: #666666;
+  height: 50px;
+}
+
+.query {
+  width: 70%;
+  margin-left: 0.7rem;
+}

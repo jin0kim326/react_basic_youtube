@@ -1,0 +1,22 @@
+.video_item {
+  width: 100%;
+  display: flex;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.video_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.thumbnail {
+}
+
+.title {
+  font-size: 1rem;
+}
+.channel {
+  color: #666666;
+  font-size: 0.8rem;
+}
