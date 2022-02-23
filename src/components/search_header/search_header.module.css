@@ -1,13 +1,29 @@
 .header {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80%;
-  background-color: #666666;
-  height: 50px;
+  height: 4rem;
+  padding: 0.8em 1em;
+  background-color: black;
+  color: white;
 }
 
-.query {
-  width: 70%;
-  margin-left: 0.7rem;
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 1em;
+}
+
+.input {
+  flex-basis: 100%;
+  font-size: 1.2rem;
+  outline: 0;
+}
+
+.button {
+  background-color: darkgray;
+  outline: 0;
+}
+
+.buttonImg {
+  height: 100%;
+  padding: 0.5em 0.2em;
 }

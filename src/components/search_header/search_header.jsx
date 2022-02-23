@@ -3,42 +3,45 @@ import styles from "./search_header.module.css";
 
 class SearchHeader extends Component {
   inputRef = React.createRef();
-  handleSearch() {
-    console.log("click search");
+
+  handleSearch = () => {
     const query = this.inputRef.current.value;
+    console.log(query);
+    this.props.onSearch(query);
+  };
 
-    var raw = "";
+  onClick = () => {
+    this.handleSearch();
+  };
 
-    var requestOptions = {
-      method: "GET",
-      body: raw,
-      redirect: "follow",
-    };
-
-    fetch(
-      `https://www.googleapis.com/youtube/v3/search/?part=snippet&masResults=25&q=${query}&key=AIzaSyAHz7ywb1SC3oCmi5eWD8wN2d3gYPIHgFQ`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => console.log(result))
-      .catch((error) => console.log("error", error));
-  }
+  onKeyPress = (event) => {
+    if (event.key === "Enter") {
+      this.onClick();
+    }
+  };
 
   render() {
     return (
-      <nav className={styles.header} onClick={this.props.onClick}>
-        <div className={styles.img}>
-          <i className={`fa-brands fa-youtube ${styles.logo_icon}`}></i>
-          <span className={styles.title}>Youtube</span>
+      <header className={styles.header}>
+        <div className={styles.logo}>
+          <img className={styles.img} src="/images/logo.png" alt="logo" />
+          <h1 className={styles.title}>Youtube</h1>
         </div>
-        <form action="">
-          <input type="text" className={styles.query} ref={this.inputRef} />
-          <i
-            className={`fa-solid fa-magnifying-glass ${styles.search_icon}`}
-            onClick={this.props.onClick}
-          ></i>
-        </form>
-      </nav>
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="Search..."
+          ref={this.inputRef}
+          onKeyPress={this.onKeyPress}
+        />
+        <button className={styles.button} onClick={this.onClick}>
+          <img
+            className={styles.buttonImg}
+            src="/images/search.png"
+            alt="search"
+          />
+        </button>
+      </header>
     );
   }
 }
