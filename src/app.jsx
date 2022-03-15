@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import styles from "./app.module.css";
 import SearchHeader from "./components/search_header/search_header";
-import SimpleSearchHeader from "./components/search_header/simple_search_header";
 import VideoList from "./components/video_list/video_list";
-import Youtube from "./service/youtube";
+import VideoDetail from "./components/video_detail/video_detail";
 
 class App extends Component {
   youtube = this.props.youtube;
 
   state = {
     videos: [],
-    clickedVideo: false,
+    selectedVideo: null,
   };
 
   componentDidMount() {
@@ -25,14 +24,23 @@ class App extends Component {
       .then((videos) => this.setState({ videos }));
   };
 
+  selectVideo = (selectedVideo) => {
+    this.setState({ selectedVideo });
+  };
+
   render() {
     return (
       <div className={styles.app}>
         <SearchHeader onSearch={this.onSearch} />
-        <VideoList
-          videos={this.state.videos}
-          clickedVideo={this.state.clickedVideo}
-        />
+        {this.state.selectedVideo ? (
+          <VideoDetail video={this.state.selectedVideo} />
+        ) : (
+          <VideoList
+            videos={this.state.videos}
+            clickedVideo={this.state.clickedVideo}
+            onClick={this.selectVideo}
+          />
+        )}
       </div>
     );
   }

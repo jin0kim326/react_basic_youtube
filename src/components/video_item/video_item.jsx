@@ -6,7 +6,7 @@ class VideoItem extends Component {
     const snippet = this.props.video.snippet;
 
     return (
-      <li className={styles.container} onClick={this.props.onClick}>
+      <li className={styles.container} onClick={this.props.onClick} >
         <div className={styles.video}>
           <img
             className={styles.thumbnail}
