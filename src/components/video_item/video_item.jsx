@@ -3,10 +3,19 @@ import styles from "./video_item.module.css";
 
 class VideoItem extends Component {
   render() {
-    const snippet = this.props.video.snippet;
+    const {
+      video,
+      display,
+      video: { snippet },
+    } = this.props;
+
+    const displayType = display === "list" ? styles.list : styles.grid;
 
     return (
-      <li className={styles.container} onClick={this.props.onClick} >
+      <li
+        className={`${styles.container} ${displayType}`}
+        onClick={() => this.props.onVideoClick(video)}
+      >
         <div className={styles.video}>
           <img
             className={styles.thumbnail}

@@ -6,11 +6,18 @@ class VideoList extends Component {
   render() {
     return (
       <div className={styles.main}>
-          <ul className={styles.videos}>
-            {this.props.videos.map((video) => {
-              return <VideoItem key={video.id} video={video} onClick={()=>this.props.onClick(video)} />;
-            })}
-          </ul>        
+        <ul className={styles.videos}>
+          {this.props.videos.map((video) => {
+            return (
+              <VideoItem
+                key={video.id}
+                video={video}
+                onVideoClick={this.props.onVideoClick}
+                display={this.props.display}
+              />
+            );
+          })}
+        </ul>
       </div>
     );
   }

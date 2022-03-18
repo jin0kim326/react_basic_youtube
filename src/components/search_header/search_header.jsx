@@ -6,8 +6,10 @@ class SearchHeader extends Component {
 
   handleSearch = () => {
     const query = this.inputRef.current.value;
-    console.log(query);
+
+    
     this.props.onSearch(query);
+
   };
 
   onClick = () => {

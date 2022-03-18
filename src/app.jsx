@@ -29,18 +29,24 @@ class App extends Component {
   };
 
   render() {
+    const { selectedVideo } = this.state;
     return (
       <div className={styles.app}>
         <SearchHeader onSearch={this.onSearch} />
-        {this.state.selectedVideo ? (
-          <VideoDetail video={this.state.selectedVideo} />
-        ) : (
-          <VideoList
-            videos={this.state.videos}
-            clickedVideo={this.state.clickedVideo}
-            onClick={this.selectVideo}
-          />
-        )}
+        <section className={styles.content}>
+          {selectedVideo && (
+            <div className={styles.detail}>
+              <VideoDetail video={selectedVideo} />
+            </div>
+          )}
+          <div className={styles.list}>
+            <VideoList
+              videos={this.state.videos}
+              onVideoClick={this.selectVideo}
+              display={selectedVideo ? "list" : "grid"}
+            />
+          </div>
+        </section>
       </div>
     );
   }

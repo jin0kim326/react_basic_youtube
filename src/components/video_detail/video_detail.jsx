@@ -10,13 +10,14 @@ class VideoDetail extends Component {
     return (
       <section className={styles.detail}>
         <iframe
-          id="player"
+          className={styles.video}
           title={snippet.title}
           type="text/html"
-          width="640"
-          height="360"
+          width="100%"
+          height="500px"
           src={`https://www.youtube.com/embed/${video.id}`}
           frameBorder="0"
+          allowFullScreen
         ></iframe>
         <h2>{snippet.title}</h2>
         <h3>{snippet.channelTitle}</h3>
